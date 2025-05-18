@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Gallery and Slideshow</title>
+
+  <style>
+    /* --- Gallery Styles --- */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .lightbox img {
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    /* --- Slideshow Styles --- */
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      20% { transform: translateX(0%); }
+      25% { transform: translateX(-100%); }
+      45% { transform: translateX(-100%); }
+      50% { transform: translateX(-200%); }
+      70% { transform: translateX(-200%); }
+      75% { transform: translateX(0%); }
+      100% { transform: translateX(0%); }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- IMAGE GALLERY -->
+  <h1 style="text-align:center;">Image Gallery</h1>
+  <div class="gallery">
+    <a href="#img1"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=60" alt="Image 1"></a>
+    <a href="#img2"><img src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=600&q=60" alt="Image 2"></a>
+    <a href="#img3"><img src="https://images.unsplash.com/photo-1523260578934-e9318da58b3f?auto=format&fit=crop&w=600&q=60" alt="Image 3"></a>
+  </div>
+
+  <!-- Lightbox Images -->
+  <div id="img1" class="lightbox">
+    <a href="#"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80" alt="Large Image 1"></a>
+  </div>
+
+  <div id="img2" class="lightbox">
+    <a href="#"><img src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=1000&q=80" alt="Large Image 2"></a>
+  </div>
+
+  <div id="img3" class="lightbox">
+    <a href="#"><img src="https://images.unsplash.com/photo-1523260578934-e9318da58b3f?auto=format&fit=crop&w=1000&q=80" alt="Large Image 3"></a>
+  </div>
+
+  <!-- IMAGE SLIDESHOW -->
+  <h1 style="text-align:center; margin-top: 80px;">Image Slideshow</h1>
+  <div class="slideshow-container">
+    <div class="slides">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Slide 1">
+      <img src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=1200&q=80" alt="Slide 2">
+      <img src="https://images.unsplash.com/photo-1523260578934-e9318da58b3f?auto=format&fit=crop&w=1200&q=80" alt="Slide 3">
+    </div>
+  </div>
+
+</body>
+</html>
